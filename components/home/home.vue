@@ -17,17 +17,19 @@
 		methods: {
     		startGame: function () {
     			console.info(`Requesting a new session id`);
-    			setTimeout(() => {
-    				app.sessionId = "todo: set ny sessionId";
-    			}, 100);
     			
-				/*this.$http({url: '/startGame', method: 'GET'}).then(
-					{ sessionId, artists } => {
-						console.log(sessionId, artists);
-					}, response => {
-						console.error(response);
-					}
-				);*/
+				$.ajax({
+					url: '/api/startGame',
+					method: 'GET'
+				}).then(response => {
+					app.sessionId = response.sid;
+					app.currentRound = {
+						artists: response.artists
+					};
+					app.rounds = [app.currentRound];
+				}).error(response => {
+					console.error(response);
+				});
     		}
     	},
     	events: {
