@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="btn {{ classes }}">{{ text }}</a>
+    <a href="#" class="btn {{ classes }}" @click="notify">{{ text }}</a>
 </template>
 
 <script>
@@ -9,6 +9,12 @@
         data: {
             text: '',
             class: ''
+        },
+        methods: {
+            notify: function (event) {
+                event.preventDefault();
+                this.$dispatch('btn-click', event);
+            }
         },
         computed: {
             classes: function() {

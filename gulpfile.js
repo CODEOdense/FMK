@@ -88,7 +88,7 @@ gulp.task('watch', function() {
   gulp.watch(['jsSrc/*.js', 'adminJs/**/*.js'], ['jsdev']);
   gulp.watch(cssDir + '**.css').on('change', livereload.changed);
   gulp.watch([componentsDir + '**/*.scss'], ['rendercomponentsdev']);
-  gulp.watch([componentsDir + '**/*.vue', mainJsEntryFile], ['buildcomponentsdev']);
+  gulp.watch([componentsDir + '**/*.vue', mainJsEntryFile, 'vuex/*.js'], ['buildcomponentsdev']);
 });
 
 gulp.task('default', function(callback) {

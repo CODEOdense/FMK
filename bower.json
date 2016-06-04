@@ -18,7 +18,8 @@
     "html5shiv": "~3.7.2",
     "susy": "~2.2.3",
     "bourbon": "~4.2.2",
-    "vue": "~1.0.24"
+    "vue": "~1.0.24",
+    "normalize-css": "~4.1.1"
   },
   "overrides": {
     "modernizr": {

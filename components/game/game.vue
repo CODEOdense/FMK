@@ -1,12 +1,13 @@
 <template>
-	<div class="home">
-		<h1>Fuck, Marry, Kill!</h1>
-		<btn text="Start"></btn>
+	<div class="game">
+		GAME!
+
+		<btn text="Next"></btn>
 	</div>
 </template>
 
 <script>
-	import './home.scss';
+	import './game.scss';
 
 	import btn from '../button/button.vue';
 
@@ -15,13 +16,8 @@
 			btn
 		},
 		methods: {
-    		startGame: function () {
+    		nextCard: function () {
     			alert("Todo: start game");
-    			
-    			setTimeout(() => {
-    				app.state.sessionId = "en-tilfeldig-sessionId";
-    			});
-    			
 				/*this.$http({url: '/startGame', method: 'GET'}).then(
 					{ sessionId, artists } => {
 						console.log(sessionId, artists);
@@ -33,8 +29,8 @@
     	},
     	events: {
     		'btn-click': function () {
-    			this.startGame();
-			}
+    			this.nextCard();
+    		}
     	}
 	};
 </script>
