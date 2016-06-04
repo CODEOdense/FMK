@@ -17,5 +17,7 @@ Edentic Base Project contains all you need to setup a new PHP project. Based upo
 5. When in `cd` into your projects directory using `cd Code/` and you are ready to go!
 6. `Exit` and use `vagrant halt` to shut down the Vagrant box, when finished developing
 
+Connect to your box using ip `192.168.57.10` on your local machine or use `<your_ip>:8000` to connect from local device
+
 ##Laravel Homestead box documentation
 Documentation on the Laravel Homested box [is located here](http://laravel.com/docs/homestead?version=4.2).
