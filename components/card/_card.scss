@@ -1,8 +1,17 @@
 .card {
   background: $white;
   border-radius: $r;
-  max-width: 20em;
+  margin-right: 1em;
   @extend .block-shadow;
+
+  @include mq($mediumBreakpoint) {
+    max-width: 18em;
+    min-width: 18em;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
 
   .card__image {
     padding: 1em;
@@ -24,6 +33,16 @@
       @include mq(600) {
         padding: 1em 0;
       }
+    }
+  }
+
+  .fmk-buttons {
+    padding: 0 1em 0.8em;
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 0 auto 0.2em;
     }
   }
 }
