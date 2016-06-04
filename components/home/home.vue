@@ -21,14 +21,12 @@
 				$.ajax({
 					url: '/api/startGame',
 					method: 'GET'
-				}).then(response => {
+				}).then(function (response) {
 					app.sessionId = response.sid;
 					app.currentRound = {
 						artists: response.artists
 					};
 					app.rounds = [app.currentRound];
-				}).error(response => {
-					console.error(response);
 				});
     		}
     	},

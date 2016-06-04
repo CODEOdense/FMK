@@ -14,10 +14,7 @@ const vm = new Vue({
     components: {
         app
     },
-    data,
-    ready: function () {
-        console.log(this.$http);
-    }
+    data
 });
 
 // Leak the vue instance
