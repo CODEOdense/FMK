@@ -37,6 +37,15 @@
     		'btn-click': function () {
     			this.nextCard();
     		}
-    	}
+    	},
+    	activate: function (done) {
+    		console.log("Game activated!");
+    		done();
+			//var self = this
+			//loadDataAsync(function (data) {
+			//	self.someData = data
+			//	done()
+			//})
+		}
 	};
 </script>

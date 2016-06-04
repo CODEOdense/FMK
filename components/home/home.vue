@@ -16,11 +16,10 @@
 		},
 		methods: {
     		startGame: function () {
-    			alert("Todo: start game");
-    			
+    			console.info(`Requesting a new session id`);
     			setTimeout(() => {
-    				app.state.sessionId = "en-tilfeldig-sessionId";
-    			});
+    				app.sessionId = "todo: set ny sessionId";
+    			}, 100);
     			
 				/*this.$http({url: '/startGame', method: 'GET'}).then(
 					{ sessionId, artists } => {
