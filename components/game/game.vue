@@ -60,14 +60,13 @@
 	    			$btn.addClass('btn--active').removeClass("btn--disabled");
 	    			$btn.siblings().removeClass("btn--active").addClass("btn--disabled");
 
-	    			$cards.not($btn.closest(".card")).find(`.btn[data-type="${type}"]`).addClass('btn--disabled');
+	    			$cards.not($btn.closest(".card")).find(`.btn[data-type="${type}"]`).addClass('btn--disabled').removeClass("btn--active");
 
 	    			$cards.each(function () {
 	    				const $btns = $(this).find(".btn--disabled");
 	    				if ($btns.length === 3) {
 	    					$btns.each(function () {
 	    						const $btn = $(this);
-	    						console.log(app.currentRound.selected[$btn.data("type")]);
 	    						if (!app.currentRound.selected[$btn.data("type")]) {
 	    							$btn.removeClass("btn--disabled");
 	    						}

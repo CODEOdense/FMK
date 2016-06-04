@@ -33,8 +33,4 @@
     @include btn($font-bold-color);
     color: shade($grey-light,10%);
   }
-
-  &--disabled {
-    opacity: .5;
-  }
 }
