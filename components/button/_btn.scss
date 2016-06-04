@@ -7,13 +7,30 @@
 
   &.btn--f {
     @include btn($brandF);
+
+    &.btn--active {
+      box-shadow: 0 0 5px $brandF;
+    }
   }
 
   &.btn--m {
     @include btn($brandM);
+
+    &.btn--active {
+      box-shadow: 0 0 5px $brandM;
+    }
   }
 
   &.btn--k {
     @include btn($brandK);
+
+    &.btn--active {
+      box-shadow: 0 0 5px $brandK;
+    }
+  }
+
+  &.btn--disabled {
+    @include btn($font-bold-color);
+    color: shade($grey-light,10%);
   }
 }
