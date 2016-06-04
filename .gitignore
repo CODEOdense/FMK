@@ -9,3 +9,5 @@ nginx.conf
 .env
 .idea/
 vendor/
+public/js
+_components.scss

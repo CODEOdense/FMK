@@ -11,7 +11,14 @@ var gulp = require('gulp'),
     gulpFilter = require('gulp-filter'),
     shell = require('gulp-shell'),
     runSequence = require('run-sequence'),
-    stripDebug = require('gulp-strip-debug');
+    stripDebug = require('gulp-strip-debug'),
+    stripDebug = require('gulp-strip-debug'),
+    browserify = require('browserify'),
+    buffer = require('vinyl-buffer'),
+    gutil = require('gulp-util'),
+    sourcemaps = require('gulp-sourcemaps'),
+    source = require('vinyl-source-stream'),
+    combiner = require('stream-combiner2');
 
 var themeDir = 'public/';
 var scssDir = 'sass/';
@@ -19,6 +26,9 @@ var jsDir = themeDir + 'js/';
 var cssDir = themeDir + 'stylesheets/';
 var assetDir = themeDir + 'assets/img/';
 var mainSassFiles = 'sass/output/*.scss';
+var componentsDir = 'components/';
+var mainJsEntryFile = 'js/main.js';
+var sassComponentFile = 'sass/_components.scss';
 
 function handleError(err) {
   console.log(err.toString());
@@ -76,11 +86,70 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch(scssDir + '**/**.scss', ['compass']);
   gulp.watch(['jsSrc/*.js', 'adminJs/**/*.js'], ['jsdev']);
-  gulp.watch(jsDir + '**.css').on('change', livereload.changed);
+  gulp.watch(cssDir + '**.css').on('change', livereload.changed);
+  gulp.watch([componentsDir + '**/*.scss'], ['rendercomponentsdev']);
+  gulp.watch([componentsDir + '**/*.vue', mainJsEntryFile], ['buildcomponentsdev']);
 });
 
 gulp.task('default', function(callback) {
   runSequence('update',
-    ['js', 'compass', 'imageoptim'],
-    callback);
+      ['js', 'rendercomponents', 'imageoptim'],
+      callback);
+});
+
+gulp.task('rendercomponents',  function(callback) {
+  runSequence('buildcomponents',
+      ['compass'],
+      callback);
+});
+
+gulp.task('rendercomponentsdev',  function(callback) {
+  runSequence('buildcomponentsdev',
+      ['compass'],
+      callback);
+});
+
+gulp.task('buildcomponents', function() {
+  var b = browserify({
+    entries: mainJsEntryFile,
+    transform: ['vueify'],
+    debug: true
+  });
+  b.plugin('bundlify-scss', {
+    output: sassComponentFile
+  });
+
+  var combined = combiner.obj([
+    b.bundle(),
+    source('main.js'),
+    buffer(),
+    sourcemaps.init({loadMaps: true}),
+    uglify(),
+    sourcemaps.write('./'),
+    gulp.dest(jsDir)
+  ]);
+  combined.on('error', handleError);
+  return combined;
+});
+
+gulp.task('buildcomponentsdev', function() {
+  var b = browserify({
+    entries: mainJsEntryFile,
+    transform: ['vueify'],
+    debug: true
+  });
+  b.plugin('bundlify-scss', {
+    output: sassComponentFile
+  });
+
+  var combined = combiner.obj([
+    b.bundle(),
+    source('main.js'),
+    buffer(),
+    sourcemaps.init({loadMaps: true}),
+    sourcemaps.write('./'),
+    gulp.dest(jsDir)
+  ]);
+  combined.on('error', handleError);
+  return combined;
 });
