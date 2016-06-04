@@ -1,19 +1,23 @@
 <template>
 	<div class="home">
-		START
+		<button @click='startGame'>Start</button>
 	</div>
 </template>
 
 <script>
 	import './home.scss';
 
-	//import btn from '../button/button.vue';
-
 	export default {
-		data() {
-			return {};
-		},
-
-		components: {}
+		methods: {
+    		startGame: function () {
+				/*this.$http({url: '/startGame', method: 'GET'}).then(
+					{ sessionId, artists } => {
+						console.log(sessionId, artists);
+					}, response => {
+						console.error(response);
+					}
+				);*/
+    		}
+		}
 	};
 </script>
