@@ -16,4 +16,8 @@
   &.btn--k {
     @include btn($brandK);
   }
+
+  &--disabled {
+    opacity: .5;
+  }
 }
