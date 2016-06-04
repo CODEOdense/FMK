@@ -8,6 +8,5 @@ h1 {
 
   @include mq($mobileBreakpoint) {
     font-size: 3.6em;
-    margin-top: 2em;
   }
 }
