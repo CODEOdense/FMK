@@ -14,26 +14,9 @@
 		components: {
 			btn
 		},
-		methods: {
-    		startGame: function () {
-    			console.info(`Requesting a new session id`);
-    			
-				$.ajax({
-					url: '/api/startGame',
-					method: 'GET'
-				}).then(function (response) {
-					app.sessionId = response.sid;
-					app.currentRound = {
-						selected: {},
-						artists: response.artists
-					};
-					app.rounds = [app.currentRound];
-				});
-    		}
-    	},
     	events: {
-    		'btn-click': function () {
-    			this.startGame();
+    		'btn-click': function (event) {
+				this.$dispatch('startGame', event);
 			}
     	}
 	};
