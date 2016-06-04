@@ -4,10 +4,15 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var shuffle = require('shuffle-array');
 var async = require('async')
-var apiEndPoint = 'http://10.10.5.123:8529/';
 var pictureDb = 'https://image.tmdb.org/t/p/w185';
+/*
+var apiEndPoint = 'http://10.10.5.123:8529/';
 var db = 'http://10.10.5.123:8529/_db/_system/off2016/fmk';
 var victimDb = 'http://10.10.5.123:8529/_db/_system/off2016/victim';
+*/
+var apiEndPoint = 'http://192.168.57.10:8529/';
+var db = 'http://192.168.57.10:8529/_db/_system/off2016/fmk';
+var victimDb = 'http://192.168.57.10:8529/_db/_system/off2016/victim';
 
 app.use('/', express.static('public'));
 var jsonParser = bodyParser.json();
