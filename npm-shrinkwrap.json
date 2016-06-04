@@ -3317,6 +3317,11 @@
         }
       }
     },
+    "node-rest-client": {
+      "version": "1.8.0",
+      "from": "node-rest-client@latest",
+      "resolved": "https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.8.0.tgz"
+    },
     "node-sass": {
       "version": "3.7.0",
       "from": "node-sass@>=3.0.0 <4.0.0",
@@ -5252,6 +5257,16 @@
       "version": "1.0.0",
       "from": "xml-char-classes@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/xml-char-classes/-/xml-char-classes-1.0.0.tgz"
+    },
+    "xml2js": {
+      "version": "0.4.16",
+      "from": "xml2js@>=0.2.4",
+      "resolved": "https://registry.npmjs.org/xml2js/-/xml2js-0.4.16.tgz"
+    },
+    "xmlbuilder": {
+      "version": "4.2.1",
+      "from": "xmlbuilder@>=4.1.0 <5.0.0",
+      "resolved": "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-4.2.1.tgz"
     },
     "xtend": {
       "version": "4.0.1",

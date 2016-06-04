@@ -28,6 +28,7 @@
     "main-bower-files": "~2.9.*",
     "mustache": "^2.2.1",
     "mustache-layout": "^1.1.1",
+    "node-rest-client": "^1.8.0",
     "run-sequence": "~1.0.*",
     "stream-combiner2": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
