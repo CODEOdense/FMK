@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="btn {{ classes }}" @click="notify">{{ text }}</a>
+    <a href="#" class="btn {{ classes }}" data-type="{{ type }}" @click="notify">{{ text }}</a>
 </template>
 
 <script>
@@ -8,7 +8,8 @@
         props: ['text', 'type'],
         data: {
             text: '',
-            class: ''
+            class: '',
+            type: ''
         },
         methods: {
             notify: function (event) {
