@@ -1,4 +1,8 @@
 .home {
+  animation: fade-in 1s ease 1.5s both;
+  h1 {
+    animation: text-idle 1.7s infinite ease;
+  }
 
   .btn {
     font-size: 1.5em;
