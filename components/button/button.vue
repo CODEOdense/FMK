@@ -1,13 +1,19 @@
 <template>
-    <a href="#" class="btn">{{ text }}</a>
+    <a href="#" class="btn {{ classes }}">{{ text }}</a>
 </template>
 
 <script>
     import './_btn.scss'
     export default {
-        props: ['text'],
+        props: ['text', 'type'],
         data: {
-            text: ''
+            text: '',
+            class: ''
+        },
+        computed: {
+            classes: function() {
+                return (this.type.length) ? 'btn--' + this.type : '';
+            }
         }
     }
 </script>
