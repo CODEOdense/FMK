@@ -39,3 +39,9 @@ echo "** SPEEDING UP DB **"
 sudo echo "innodb_flush_log_at_trx_commit = 2" >> /etc/mysql/my.cnf
 sudo sed -i 's/skip-external-locking/skip-external-locking\ninnodb_flush_log_at_trx_commit = 2/g' /etc/mysql/my.cnf
 sudo service mysql restart
+
+echo "** SETTING UP PM2 NODE SCRIPT STARTER **"
+npm install pm2 -g
+pm2 startup ubuntu
+su -c "env PATH=$PATH:/usr/bin pm2 startup ubuntu -u vagrant --hp /home/vagrant"
+pm2 start /home/vagrant/Code/index.js
