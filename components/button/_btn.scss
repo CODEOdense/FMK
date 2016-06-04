@@ -1,0 +1,17 @@
+.btn {
+  @include btn($brandColor);
+  display: block;
+  background: red;
+
+  &.btn--f {
+    @include btn($brandF);
+  }
+
+  &.btn--m {
+    @include btn($brandM);
+  }
+
+  &.btn--k {
+    @include btn($brandK);
+  }
+}
