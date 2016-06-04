@@ -4517,6 +4517,11 @@
       "from": "shell-quote@>=1.4.3 <2.0.0",
       "resolved": "https://registry.npmjs.org/shell-quote/-/shell-quote-1.6.0.tgz"
     },
+    "shuffle-array": {
+      "version": "1.0.0",
+      "from": "shuffle-array@latest",
+      "resolved": "https://registry.npmjs.org/shuffle-array/-/shuffle-array-1.0.0.tgz"
+    },
     "sigmund": {
       "version": "1.0.1",
       "from": "sigmund@>=1.0.0 <1.1.0",
