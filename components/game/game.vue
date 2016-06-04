@@ -34,8 +34,8 @@
 			card
 		},
 		methods: {
-    		nextCard: function () {
-    			alert("Todo: show 3 next game");
+    		showNextRound: function () {
+    			alert("Todo: show next round");
 				/*this.$http({url: '/startGame', method: 'GET'}).then(
 					{ sessionId, artists } => {
 						console.log(sessionId, artists);
@@ -46,8 +46,16 @@
     		}
     	},
     	events: {
-    		'btn-click': function () {
-    			this.nextCard();
+    		'btn-click': function (event) {
+    			const $btn = $(event.target);
+
+    			if ($btn.data("type") === "next-round") {
+    				this.showNextRound();
+    			}
+    			else {
+	    			$btn.addClass('btn--active').removeClass("btn--disabled");
+	    			$btn.siblings().addClass("btn--disabled");
+	    		}
     		}
     	},
     	activate: function (done) {
