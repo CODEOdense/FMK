@@ -1,7 +1,11 @@
 <template>
 	<div class="game">
-		GAME!
-
+		<h1>Fuck, Marry, Kill!</h1>
+		<div class="card-wrapper">
+			<card text="Actor Name"></card>
+			<card text="Actor Name"></card>
+			<card text="Actor Name"></card>
+		</div>
 		<btn text="Next"></btn>
 	</div>
 </template>
@@ -10,10 +14,12 @@
 	import './game.scss';
 
 	import btn from '../button/button.vue';
+	import card from '../card/card.vue';
 
 	export default {
 		components: {
-			btn
+			btn,
+			card
 		},
 		methods: {
     		nextCard: function () {
