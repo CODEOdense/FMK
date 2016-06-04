@@ -41,6 +41,10 @@ gulp.task('update', shell.task([
   'bower install --allow-root'
 ]));
 
+gulp.task('restartserver', shell.task([
+  'pm2 restart index'
+]));
+
 gulp.task('localinstall', shell.task('npm rebuild node-sass'));
 
 gulp.task('js', function() {
@@ -85,6 +89,7 @@ gulp.task('imageoptim', function() {
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch(scssDir + '**/**.scss', ['compass']);
+  gulp.watch('index.js', ['restartserver']);
   gulp.watch(['jsSrc/*.js', 'adminJs/**/*.js'], ['jsdev']);
   gulp.watch(cssDir + '**.css').on('change', livereload.changed);
   gulp.watch([componentsDir + '**/*.scss'], ['rendercomponentsdev']);
