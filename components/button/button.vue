@@ -9,6 +9,11 @@
         data: {
             text: '',
             class: ''
+        },
+        computed: {
+            classes: function() {
+                return (this.type.length) ? 'btn--' + this.type : '';
+            }
         }
     }
 </script>
