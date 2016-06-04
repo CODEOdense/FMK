@@ -1,14 +1,19 @@
 <template>
-  <h1 class="red">{{msg}}</h1>
+  <home></home>
 </template>
 
 <script>
-  import './app.scss';
-export default {
-  data () {
-    return {
-      msg: 'Hello world!'
-    }
-  }
-}
+	import './app.scss';
+
+	import home from '../home/home.vue';
+
+	export default {
+		data () {
+			return {};
+		},
+
+		components: {
+			home
+		}
+	}
 </script>
