@@ -3,7 +3,7 @@
 		<h1>Fuck, Marry, Kill!</h1>
 		<div class="card-wrapper">
 			<template v-for="artist in artists">
-				<card :text="artist.name"></card>
+				<card :text="artist.name" :picture="artist.picture"></card>
 			</template>
 		</div>
 		<btn text="Next" type="next-round"></btn>

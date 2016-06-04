@@ -22,6 +22,10 @@ var args = {
 var getArtist = function(callback) {
     request.get(apiEndPoint + '_db/_system/off2016/victim', function(err, httpResponse, body) {
         var artist = JSON.parse(body);
+        artist = artist.map(function(artist) {
+            artist.picture = pictureDb + '/' + artist.image_path
+            return artist;
+        });
         callback(artist);
     })
 };

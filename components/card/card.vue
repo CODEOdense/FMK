@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card__image">
-            <img src="http://placekitten.com/g/200/300" alt="">
+            <img :src="picture" alt="">
         </div>
         <div class="card__name">
             <p>{{ text }}</p>
@@ -22,6 +22,6 @@
         components: {
             btn
         },
-        props: ['text']
+        props: ['text', 'picture']
     }
 </script>
