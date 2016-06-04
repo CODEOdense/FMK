@@ -1,0 +1,22 @@
+.card {
+  height: 20em;
+  background: $white;
+  border-radius: $r;
+  max-width: 20em;
+
+  .card__image {
+    padding: 1em;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .card__name {
+
+    p {
+      text-align: center;
+    }
+  }
+}
