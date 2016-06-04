@@ -20,8 +20,7 @@ var getArtist = function(callback) {
                 return artist;
             }
         });
-
-        console.log(data);
+        
         data = shuffle.pick(data, {'picks': 3});
         callback(data);
     })
