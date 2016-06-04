@@ -11,6 +11,14 @@ var db = 'http://10.10.5.123:8529/_db/_system/off2016/fmk';
 app.use('/', express.static('public'));
 var jsonParser = bodyParser.json();
 
+var Client = require('node-rest-client').Client;
+
+var restclient = new Client();
+
+var args = {
+    headers: { "Content-Type": "application/json" }
+};
+
 var getArtist = function(callback) {
     request.get(apiEndPoint + '_db/_system/off2016/victim', function(err, httpResponse, body) {
         var artist = JSON.parse(body);
@@ -42,7 +50,7 @@ app.use('/api/startgame', [jsonParser], function(req, res) {
             dataSet.rounds[round.toString()] = artistData;
             console.log('NEW: ');
             console.log(dataSet);
-            request.patch(db + '/' + sid , { form: dataSet }, function(err, httpResponse, body) {
+            restclient.patch(db + '/' + sid, {data: dataSet, headers: {'Content-Type': 'application/json'} }, function(body) {
                 console.log('RESULT: ');
                 console.log(body);
                 getArtist(function(artists) {
