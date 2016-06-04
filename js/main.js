@@ -6,6 +6,10 @@ Vue.use(require('vue-resource'));
 //Vue.http.options.root = '/root';
 //Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
 
+/*if (!Vue.http) {
+	Vue.http = {};
+}
+
 Vue.http.interceptors.push({
     request: function (request) {
 
@@ -21,13 +25,27 @@ Vue.http.interceptors.push({
         return response;
     }
 });
+*/
 
-window.app = new Vue({
+// The empty state
+const data = {
+    state: {}
+};
+
+const vm = new Vue({
     el: 'body',
     components: {
         app
     },
     ready: function () {
     	console.log("App ready...");
-    }
+    },
+    data
 });
+
+// Watch the state
+vm.$watch('state.sessionId', function (newVal, oldVal) {
+  console.log(newVal, oldVal);
+});
+
+window.app = vm;

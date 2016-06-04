@@ -189,6 +189,11 @@ class Homestead
       end
     end
 
+    config.vm.provision "shell", run: "always" do |s|
+        s.privileged = false;
+        s.inline = "cd /home/vagrant/Code/ && pm2 start /home/vagrant/Code/index.js"
+    end
+
     # Configure Blackfire.io
     if settings.has_key?("blackfire")
       config.vm.provision "shell" do |s|

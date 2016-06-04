@@ -1,7 +1,10 @@
 {
-  "name": "EdenticProjectBoilerplate",
+  "name": "fmk",
   "description": "Boilerplate for Edentic projects",
-  "repository": "git@github.com:Edentic/ProjectBoilerplate.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Edentic/ProjectBoilerplate.git"
+  },
   "dependencies": {
     "babel-core": "^6.9.1",
     "babel-plugin-transform-runtime": "^6.9.0",
@@ -9,6 +12,7 @@
     "babel-runtime": "^6.9.2",
     "browserify": "^13.0.1",
     "bundlify-scss": "0.0.1",
+    "express": "^4.13.4",
     "gulp": "~3.9.*",
     "gulp-autoprefixer": "~2.3.*",
     "gulp-concat": "2.6.*",
@@ -22,13 +26,26 @@
     "gulp-strip-debug": "~1.0.*",
     "gulp-uglify": "~1.2.*",
     "main-bower-files": "~2.9.*",
+    "mustache": "^2.2.1",
+    "mustache-layout": "^1.1.1",
     "run-sequence": "~1.0.*",
     "stream-combiner2": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vue": "^1.0.24",
     "vue-resource": "^0.7.2",
-    "vueify": "^8.5.4",
-    "vuex": "^0.6.3"
-  }
+    "vueify": "^8.5.4"
+  },
+  "bugs": {
+    "url": "https://github.com/Edentic/ProjectBoilerplate/issues"
+  },
+  "homepage": "https://github.com/Edentic/ProjectBoilerplate#readme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

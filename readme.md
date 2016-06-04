@@ -19,5 +19,5 @@ Edentic Base Project contains all you need to setup a new PHP project. Based upo
 
 Connect to your box using ip `192.168.57.10` on your local machine or use `<your_ip>:8000` to connect from local device
 
-##Laravel Homestead box documentation
-Documentation on the Laravel Homested box [is located here](http://laravel.com/docs/homestead?version=4.2).
+##Express help
+Run `pm2 restart index` to restart Express server when code is changed
