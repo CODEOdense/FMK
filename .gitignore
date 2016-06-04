@@ -11,3 +11,5 @@ nginx.conf
 vendor/
 public/js
 _components.scss
+Release.key
+Release.key.1
