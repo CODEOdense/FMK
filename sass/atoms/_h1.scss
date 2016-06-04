@@ -1,3 +1,8 @@
 h1 {
-  font-family: $font-standard;
+  font-family: $font-bold;
+  font-size: 2em;
+
+  @include mq(600) {
+    font-size: 3.6em;
+  }
 }

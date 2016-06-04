@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		START
+		<h1>Fuck, Marry, Kill!</h1>
 	</div>
 </template>
 
