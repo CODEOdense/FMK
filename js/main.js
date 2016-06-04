@@ -12,9 +12,9 @@ const data = {
 const vm = new Vue({
     el: 'body',
     components: {
-        app
+        app: app
     },
-    data
+    data: data
 });
 
 // Leak the vue instance
