@@ -3,7 +3,6 @@
   display: block;
   margin: 4em auto;
   max-width: 10em;
-  font-size: 2em;
 
   &.btn--f {
     @include btn($brandF);

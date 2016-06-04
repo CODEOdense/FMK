@@ -1,2 +1,14 @@
 .home {
+
+  .btn {
+    font-size: 1.5em;
+
+    @include mq($mobileBreakpoint) {
+      font-size: 1.7em;
+    }
+
+    @include mq($mediumBreakpoint) {
+      font-size: 2em;
+    }
+  }
 }
