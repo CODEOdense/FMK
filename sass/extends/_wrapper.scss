@@ -1,4 +1,10 @@
 .wrapper {
+  padding: 1em;
 
+  @include mq($largeBreakpoint) {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0;
+  }
   @include chrisCoyier;
 }

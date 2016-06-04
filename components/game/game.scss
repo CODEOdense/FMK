@@ -1,6 +1,18 @@
 .game {
+  @extend .wrapper;
 
   .card-wrapper {
-    display: flex;
+
+    @include mq($mobileBreakpoint) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card {
+
+      @include mq($mobileBreakpoint, max) {
+        margin: 0 auto 1em;
+      }
+    }
   }
 }

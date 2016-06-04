@@ -1,8 +1,8 @@
 .card {
-  height: 20em;
   background: $white;
   border-radius: $r;
   max-width: 20em;
+  @extend .block-shadow;
 
   .card__image {
     padding: 1em;
@@ -14,10 +14,16 @@
   }
 
   .card__name {
+    border-top: 1px solid $grey-light;
 
     p {
+      padding: 0 0 1em;
       text-align: center;
       font-family: $font-standard;
+
+      @include mq(600) {
+        padding: 1em 0;
+      }
     }
   }
 }
