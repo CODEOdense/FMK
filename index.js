@@ -3,10 +3,16 @@ var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
 var shuffle = require('shuffle-array');
-
-var apiEndPoint = 'http://10.10.5.123:8529/';
+var async = require('async')
 var pictureDb = 'https://image.tmdb.org/t/p/w185';
+/*
+var apiEndPoint = 'http://10.10.5.123:8529/';
 var db = 'http://10.10.5.123:8529/_db/_system/off2016/fmk';
+var victimDb = 'http://10.10.5.123:8529/_db/_system/off2016/victim';
+*/
+var apiEndPoint = 'http://192.168.57.10:8529/';
+var db = 'http://192.168.57.10:8529/_db/_system/off2016/fmk';
+var victimDb = 'http://192.168.57.10:8529/_db/_system/off2016/victim';
 
 app.use('/', express.static('public'));
 var jsonParser = bodyParser.json();
@@ -52,18 +58,29 @@ app.use('/api/startgame', [jsonParser], function(req, res) {
             }
 
             dataSet.rounds[round.toString()] = artistData;
+
+            async.each(artistData, function(item, callback) {
+                console.log(victimDb + "/" + item.id + "/" + item.verdict);
+                restclient.get(victimDb + "/" + item.id + "/" + item.verdict, {}, function(data, response) {
+                    console.log(response);
+                    callback(null);
+                })
+            }, function() {
+                restclient.patch(db + '/' + sid, {data: dataSet, headers: {'Content-Type': 'application/json'} }, function(body) {
+                    console.log('RESULT: ');
+                    console.log(body);
+                    getArtist(function(artists) {
+                        res.json({
+                            sid: sid,
+                            artists: artists
+                        });
+                    });
+                })
+            })
+
             console.log('NEW: ');
             console.log(dataSet);
-            restclient.patch(db + '/' + sid, {data: dataSet, headers: {'Content-Type': 'application/json'} }, function(body) {
-                console.log('RESULT: ');
-                console.log(body);
-                getArtist(function(artists) {
-                    res.json({
-                        sid: sid,
-                        artists: artists
-                    });
-                });
-            })
+
         });
     } else {
         request.post(db, { }, function(err, httpResponse, body) {
