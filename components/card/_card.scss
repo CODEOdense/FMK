@@ -14,11 +14,11 @@
   }
 
   .card__image {
-    padding: 1em;
 
     img {
       width: 100%;
       height: auto;
+      border-radius: $r $r 0 0;
     }
   }
 
@@ -29,9 +29,10 @@
       padding: 0 0 1em;
       text-align: center;
       font-family: $font-standard;
+      font-size: 1.2em;
 
       @include mq(600) {
-        padding: 1em 0;
+        padding: 0.5em 0;
       }
     }
   }
