@@ -24,6 +24,7 @@
 				}).then(function (response) {
 					app.sessionId = response.sid;
 					app.currentRound = {
+						selected: {},
 						artists: response.artists
 					};
 					app.rounds = [app.currentRound];

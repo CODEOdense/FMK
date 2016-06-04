@@ -6,7 +6,7 @@
 				<card :text="artist.name"></card>
 			</template>
 		</div>
-		<btn text="Next"></btn>
+		<btn text="Next" type="next-round"></btn>
 	</div>
 </template>
 
@@ -22,12 +22,9 @@
 			if (window.app) {
 				return app.currentRound;
 			}
-
-			return {
-				artists: [{
-					name: 'John Doe'
-				}]
-			};
+			else {
+				throw new Error("app.currentRound is not defined =(");
+			}
 		},
 		components: {
 			btn,
@@ -35,26 +32,48 @@
 		},
 		methods: {
     		showNextRound: function () {
-    			alert("Todo: show next round");
-				/*this.$http({url: '/startGame', method: 'GET'}).then(
-					{ sessionId, artists } => {
-						console.log(sessionId, artists);
-					}, response => {
-						console.error(response);
-					}
-				);*/
+    			$.ajax({
+					url: '/api/startGame',
+					method: 'GET'
+				}).then(function (response) {
+					app.currentRound = {
+						selected: {},
+						artists: response.artists
+					};
+					app.rounds.push(app.currentRound);
+				});
     		}
     	},
     	events: {
     		'btn-click': function (event) {
-    			const $btn = $(event.target);
+    			const $btn = $(event.target),
+    				type = $btn.data("type"),
+    				$cards = $btn.closest(".card-wrapper").children();
 
     			if ($btn.data("type") === "next-round") {
     				this.showNextRound();
     			}
     			else {
+
+    				app.currentRound.selected[type] = true;
+
 	    			$btn.addClass('btn--active').removeClass("btn--disabled");
-	    			$btn.siblings().addClass("btn--disabled");
+	    			$btn.siblings().removeClass("btn--active").addClass("btn--disabled");
+
+	    			$cards.not($btn.closest(".card")).find(`.btn[data-type="${type}"]`).addClass('btn--disabled').removeClass("btn--active");
+
+	    			$cards.each(function () {
+	    				const $btns = $(this).find(".btn--disabled");
+	    				if ($btns.length === 3) {
+	    					$btns.each(function () {
+	    						const $btn = $(this);
+	    						if (!app.currentRound.selected[$btn.data("type")]) {
+	    							$btn.removeClass("btn--disabled");
+	    						}
+	    					})
+	    					
+	    				}
+	    			});
 	    		}
     		}
     	},

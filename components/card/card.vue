@@ -22,9 +22,6 @@
         components: {
             btn
         },
-        props: ['text'],
-        data: {
-            text: ''
-        }
+        props: ['text']
     }
 </script>

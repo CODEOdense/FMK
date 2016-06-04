@@ -6,10 +6,10 @@
     import './_btn.scss'
     export default {
         props: ['text', 'type'],
-        data: {
-            text: '',
-            class: '',
-            type: ''
+        data: function () {
+            return {
+                class: ''
+            }
         },
         methods: {
             notify: function (event) {
@@ -19,7 +19,7 @@
         },
         computed: {
             classes: function() {
-                return (this.type.length) ? 'btn--' + this.type : '';
+                return this.type ? 'btn--' + this.type : '';
             }
         }
     }
