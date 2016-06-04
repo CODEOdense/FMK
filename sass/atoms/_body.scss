@@ -7,5 +7,6 @@ html, body {
 
 body {
   margin-top: 0;
-  background: url("/img/bg.svg") no-repeat 100%/cover;
+  background: url("/img/bg.svg") no-repeat;
+  background-size: cover;
 }
