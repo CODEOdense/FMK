@@ -1,7 +1,6 @@
-#Edentic Base Project based on Laravel Homestead
+#FMK Game
 
-##Introduction
-Edentic Base Project contains all you need to setup a new PHP project. Based upon the populare Laravel Homestead Vagrant box, the Edentic Base Project contains everything to get a new project up and running in no time! Edentic Base Project includes a default `npm` and `gulp` setup, which manages all the front-end assets, including compiling `sass` to `css` and compressing `images` and `js` sources. Also `bower` is included for easier JS front-end package management. The best of all is that all theese tools comes packaged and pre-installed in the vagrant box.
+FMK game based on Movia data from OFF
 
 
 ##Requirements
@@ -9,15 +8,12 @@ Edentic Base Project contains all you need to setup a new PHP project. Based upo
 - [Vagrant](http://vagrantup.com)
 
 ##How to get going
-1. Download the Edentic Base Project and unzip it
-2. Place all the base project files in a new folder for your project
-3. Copy your project files into the same folder - the `public/` directory is setup as the root for the webserver.
-3. `cd` into your new project folder and run `vagrant up`
-4. When Vagrant has finished setting up your box, use `vagrant ssh` to SSH into your newly setup Vagrant box
-5. When in `cd` into your projects directory using `cd Code/` and you are ready to go!
-6. `Exit` and use `vagrant halt` to shut down the Vagrant box, when finished developing
 
-Connect to your box using ip `192.168.57.10` on your local machine or use `<your_ip>:8000` to connect from local device
+1. Clone this repo and `cd` into it
+2. Run `vagrant up`
+3. When Vagrant has finished setup, you can access the project using your favourite browser and the ip `192.168.57.10` or from an external device using `<your_ip>:8000`
+4. Use `vagrant ssh` to SSH into your newly setup Vagrant box and `cd` into your projects directory using `cd Code/` and you are ready to go!
+5. Use `Exit` and `vagrant halt` to shut down the Vagrant box, when finished developing
 
 ##Express help
 Run `pm2 restart index` to restart Express server when code is changed
