@@ -16,6 +16,10 @@
 	import btn from '../button/button.vue';
 	import card from '../card/card.vue';
 
+	import dummyApi from '../../dummy-api';
+
+	let useDummyApi = true;
+
 	export default {
 		data: function() {
 			return {
@@ -36,36 +40,59 @@
 				var that = this;
 				console.log('NextGame!');
 				if(that.rounds.length > 0) {
-					$.ajax({
-						url: '/api/startGame',
-						method: 'POST',
-						dataType: 'json',
-						contentType: 'application/json',
-						data: JSON.stringify({
-							sid: that.sessionId,
-							artists: that.currentRound.artists,
-							round: that.rounds.length
-						})
-					}).then(function (response) {
-						that.currentRound = {
-							selected: {},
-							artists: response.artists
-						};
-						that.rounds.push(app.currentRound);
-					});
+					if (useDummyApi) {
+						dummyApi.startGame().then(response => {
+							that.currentRound = {
+								selected: {},
+								artists: response.artists
+							};
+							that.rounds.push(app.currentRound);
+						});
+					}
+					else {
+						$.ajax({
+							url: '/api/startGame',
+							method: 'POST',
+							dataType: 'json',
+							contentType: 'application/json',
+							data: JSON.stringify({
+								sid: that.sessionId,
+								artists: that.currentRound.artists,
+								round: that.rounds.length
+							})
+						}).then(function (response) {
+							that.currentRound = {
+								selected: {},
+								artists: response.artists
+							};
+							that.rounds.push(app.currentRound);
+						});
+					}
 				} else {
-					$.ajax({
-						url: '/api/startGame',
-						method: 'GET',
-						dataType: 'json',
-					}).then(function (response) {
-						that.sessionId = response.sid;
-						that.currentRound = {
-							selected: {},
-							artists: response.artists
-						};
-						that.rounds.push(app.currentRound);
-					});
+					if (useDummyApi) {
+						dummyApi.startGame().then(response => {
+							that.sessionId = response.sid;
+							that.currentRound = {
+								selected: {},
+								artists: response.artists
+							};
+							that.rounds.push(app.currentRound);
+						});
+					}
+					else {
+						$.ajax({
+							url: '/api/startGame',
+							method: 'GET',
+							dataType: 'json',
+						}).then(function (response) {
+							that.sessionId = response.sid;
+							that.currentRound = {
+								selected: {},
+								artists: response.artists
+							};
+							that.rounds.push(app.currentRound);
+						});
+					}
 				}
     		}
     	},
