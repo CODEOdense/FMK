@@ -31,6 +31,7 @@
     "mustache": "^2.2.1",
     "mustache-layout": "^1.1.1",
     "node-rest-client": "^1.8.0",
+    "random-name": "^0.1.1",
     "request": "^2.72.0",
     "run-sequence": "~1.0.*",
     "shuffle-array": "^1.0.0",

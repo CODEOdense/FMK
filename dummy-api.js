@@ -1,3 +1,5 @@
+const randomName = require('random-name');
+
 function startGame () {
 	return new Promise((resolve, reject) => {
 		resolve({
@@ -20,7 +22,7 @@ let artistIdIncrement = 0;
 function createArtist () {
 	return {
 		_id: ++artistIdIncrement,
-		name: 'John Doe',
+		name: randomName.first() + ' ' + randomName.last(),
 		picture: `https://placeimg.com/640/480/people?${artistIdIncrement}`
 	};
 }
